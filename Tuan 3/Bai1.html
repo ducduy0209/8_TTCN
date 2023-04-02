@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="//cdn.eop.edu.vn/cdn/favicon.ico" type="image/ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Trường ngoại ngữ - Du lịch</title>
+</head>
+
+<body>
+    <div class="main">
+        <b class="fake">Complete the following sentences with a suitable word beginning with a given letter.</b>
+        <form onsubmit="submitForm(event)">
+            <p class="char-title">1. We'll put this commercial software on the market for a two month f _ _ _ t _ _ _ _
+                period, to see if there is a good demand for it.</p>
+            <input type="text" class="char">
+            <p class="quantity-title">2. The new security cameras weren’t d _ _ _ _ _ _ _ department-wide and were not
+                purchased after testing, Draisin said.</p>
+            <input type="text" class="quantity">
+            <p id="results1"></p>
+            <br>
+            <br>
+            <button><input value="Hoàn thành" type="submit" class="done" /></button>
+            <button onclick="window.location.reload();">Gửi ý kiến</button>
+        </form>
+        <br>
+        <br>
+    </div>
+    <script src="./Bai1.js"></script>
+</body>
+
+</html>

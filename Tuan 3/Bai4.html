@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Danh sách sản phẩm</title>
+    <style>
+      /* CSS cho các thành phần HTML */
+      .product-item {
+        border: 1px solid gray;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Danh sách sản phẩm</h1>
+    
+    <div>
+      <label for="search-box">Tìm kiếm: </label>
+      <input type="text" id="search-box">
+    </div>
+    
+    <div>
+      <label for="category-filter">Danh mục: </label>
+      <select id="category-filter">
+        <option value="">Tất cả</option>
+        <option value="Điện thoại">Điện thoại</option>
+        <option value="Máy tính bảng">Máy tính bảng</option>
+        <option value="Laptop">Laptop</option>
+      </select>
+    </div>
+    
+    <div>
+      <label for="sort-by">Sắp xếp theo: </label>
+      <select id="sort-by">
+        <option value="name">Tên</option>
+        <option value="price">Giá tiền</option>
+      </select>
+    </div>
+    
+    <div id="product-list"></div>
+    
+    <!-- Nhúng JavaScript vào trang web -->
+    <script src="./Bai4.js"></script>
+  </body>
+</html>
