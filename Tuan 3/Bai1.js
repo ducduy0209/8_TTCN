@@ -1,230 +1,61 @@
-// const arr = [
-//   "Bootleg",
-//   "Cheat",
-//   "Copy-protection technology",
-//   "Copyright",
-//   "Copyright ethic",
-//   "Creator",
-//   " Dishonest behavior",
-//   "Duplicate",
-//   "Ethical standard",
-//   "Intellectual property",
-//   "Integrity",
-//   "Ownership",
-//   "Plagiarism",
-//   "Professional judgement",
-//   "Public interest",
-//   "Software copyright",
-//   "Welfare",
-//   "Apply for a patent",
-//   "Be subject to disciplinary action",
-//   "Comply with",
-//   "Be deceptive",
-//   "Defend the principle",
-//   "Register a trademark",
-//   "Obey the law",
-//   "Respect",
-//   "Take responsibility for",
-//   "Deal with problems",
-//   "Unethical",
-//   "Violate copyright law",
-//   "Violate the public interest",
-//   "Withhold information",
-//   "Alpha testing",
-//   "Aspect-oriented programming",
-//   "Beta testing",
-//   "Boot-loader",
-//   "Cloud computing",
-//   "Cloud Computing Infrastructure",
-//   "Control structure",
-//   "Documentation",
-//   "Flow chart",
-//   "Free trial",
-//   "Implementation",
-//   "In-app purchase",
-//   "Instruction",
-//   "Language translator",
-//   "Layout",
-//   "Maintenance",
-//   "Object-oriented programming",
-//   "Premium version",
-//   "Primitive data",
-//   "Pseudocode",
-//   "Requirement Analysis",
-//   "Sketch",
-//   "Software development kit",
-//   "Template",
-//   "Virtual machine application",
-//   "Visual diagram",
-//   "Analyze",
-//   "Code",
-//   "Define",
-//   "Deploy",
-//   "Formalize",
-//   "Implement",
-//   "Maintain",
-//   "Plan",
-//   "Prepare",
-//   "Proofread",
-//   "Release",
-//   "Resize",
-//   "Test",
-//   "Tweak",
-//   "BIOS",
-//   "Basic Input",
-//   "Output System",
-//   "Boot drive",
-//   "CMOS setup",
-//   "Complementary Metal-Oxide-Semiconductor",
-//   "Configuration",
-//   "Default",
-//   "Device driver",
-//   "Device manager",
-//   "Disk cleanup",
-//   "Expansion card",
-//   "Installation",
-//   "Maintenance",
-//   "Microsoft Drive Optimizer",
-//   "Modem card",
-//   "Partition",
-//   "Rescue disk",
-//   "Video card",
-//   "Align",
-//   "Attach",
-//   "Back up",
-//   "Boot",
-//   "Configure",
-//   "Defragment",
-//   "Insert",
-//   "Maintain",
-//   "Optimize",
-//   "Process",
-//   "Reboot",
-//   "Secure",
-//   "Computer code",
-// ];
-const arr = [
-  "Acknowledge",
-  "Affect",
-  "Artifact",
-  "Artefact",
-  "Attention",
-  "Attitude",
-  "Belief",
-  "Board Meeting",
-  "Business Dinner",
-  "Ceremony",
-  "Comment",
-  "Company Foundation Anniversary",
-  "Company Milestone Event",
-  "Concentrate",
-  "Concern",
-  "Conference",
-  "Consider",
-  "Consideration",
-  "Convey",
-  "Corporate Culture",
-  "Corporate Event",
-  "Corrective",
-  "Cover",
-  "Credit Note",
-  "Defect",
-  "Defective",
-  "Defensive",
-  "Demo",
-  "Engagement",
-  "Event Management Company",
-  "Event Planner",
-  "Expire",
-  "Extended",
-  "Feedback",
-  "Focus",
-  "Generate",
-  "Get Across",
-  "Guarantee",
-  "Host",
-  "Impact",
-  "Impact",
-  "Influence",
-  "In-house",
-  "Interact",
-  "Interaction",
-  "Invisible",
-  "Keynote",
-  "Lifetime",
-  "Limited",
-  "Malfunction",
-  "Mission",
-  "Networking",
-  "Offensive",
-  "Organizational Culture",
-  "Organize",
-  "Outsource",
-  "Participant",
-  "Participate",
-  "Perception",
-  "Performance",
-  "Product Launch",
-  "Prospective",
-  "Recall",
-  "Resolve",
-  "Review",
-  "Seating Arrangement",
-  "Seminar",
-  "Session",
-  "Set Up",
-  "Set-up",
-  "Shareholder Meeting",
-  "Show of Hands",
-  "Survey",
-  "Symbol",
-  "Sympathize",
-  "Sympathy",
-  "Team Building Event",
-  "Value",
-  "Visible",
-  "Vision",
-  "Warrant",
-  "Warranty",
-  "Workmanship",
-  "Workshop",
-];
-let arrVo1 = [];
+// Tạo số ngẫu nhiên từ 1 đến 100
+const secretNumber = Math.floor(Math.random() * 100) + 1;
 
-function submitForm(event) {
-  event.preventDefault();
-  arrVo1 = [];
-  const listFirstChar = document.querySelector(".char").value.split("");
-  const quantity = document.querySelector(".quantity");
-  const charFirst = document.querySelector(".char");
-  if (listFirstChar.length > 1) {
-    arr.forEach((item) => {
-      if (item.split(" ").length === listFirstChar.length) {
-        for (let i = 0; i < listFirstChar.length - 1; i++) {
-          if (
-            item
-              .split(" ")
-              [i].toUpperCase()
-              .startsWith(listFirstChar[i].toUpperCase()) &&
-            item
-              .split(" ")
-              [i + 1].toUpperCase()
-              .startsWith(listFirstChar[i + 1].toUpperCase())
-          ) {
-            arrVo1.push(item);
-          }
-        }
-      }
-    });
-  } else {
-    arr.forEach((item) => {
-      if (
-        item.startsWith(charFirst.value.toUpperCase()) &&
-        item.length === Number(quantity.value)
-      ) {
-        arrVo1.push(item);
-      }
-    });
+// Khởi tạo số lần đoán và mảng lưu trữ các số đã đoán
+let guessCount = 0;
+const guesses = [];
+
+// Hàm kiểm tra số đã đoán có hợp lệ hay không
+function isValidGuess(guess) {
+  if (isNaN(guess)) {
+    alert("Vui lòng nhập một số!");
+    return false;
   }
-  document.getElementById("results1").textContent = `3. ${arrVo1}`;
+  if (guess < 1 || guess > 100) {
+    alert("Vui lòng nhập một số từ 1 đến 100!");
+    return false;
+  }
+  if (guesses.includes(guess)) {
+    alert("Bạn đã đoán số này rồi!");
+    return false;
+  }
+  return true;
+}
+
+// Hàm kiểm tra số đã đoán có chính xác hay không
+function checkGuess(guess) {
+  guesses.push(guess);
+  guessCount++;
+
+  if (guess === secretNumber) {
+    alert(
+      `Bạn đã đoán chính xác số bí mật ${secretNumber} sau ${guessCount} lần đoán!`
+    );
+    return true;
+  }
+
+  if (guessCount === 10) {
+    alert(`Bạn đã hết số lần đoán. Số bí mật là ${secretNumber}.`);
+    return true;
+  }
+
+  let message =
+    "Số của bạn là quá " + (guess < secretNumber ? "nhỏ" : "lớn") + ".";
+  message += ` Bạn còn ${10 - guessCount} lần đoán.`;
+  alert(message);
+  return false;
+}
+
+// Vòng lặp chính của trò chơi
+while (true) {
+  let guess = prompt("Hãy đoán một số từ 1 đến 100:");
+  if (guess === null) {
+    break;
+  }
+  guess = parseInt(guess);
+  if (isValidGuess(guess)) {
+    if (checkGuess(guess)) {
+      break;
+    }
+  }
 }
